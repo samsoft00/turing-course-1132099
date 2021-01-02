@@ -30,4 +30,17 @@ each element of array A is an integer within the range [1..1,000,000,000];
 all but one of the values in A occur an even number of times.
  */
 
-let oldOccurenciesArray = function (array) {};
+let oldOccurenciesArray = function (array) {
+  const hashMap = {};
+
+  for (const element of array) {
+    hashMap[element] = hashMap[element] ? hashMap[element] + 1 : 1;
+  }
+
+  for (const i in hashMap) {
+    if (hashMap[i] === 1) return parseInt(i);
+  }
+};
+
+let array = [9, 3, 9, 3, 9, 7, 9];
+console.log(oldOccurenciesArray(array));
